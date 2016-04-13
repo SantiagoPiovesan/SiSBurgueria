@@ -1,0 +1,26 @@
+<div class="container todo">
+    
+    <div>    
+        <form class="form-inline">
+            <div class="form-group">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                <input class="form-control" id="filter" placeholder="Filtrar" ng-model="filtro" />
+            </div>            
+        </form>
+
+        <br />
+
+        <table class="table">
+        	<tr>
+        		<th>NOME</th>
+        		<th>INGREDIENTES</th>
+        		<th>PREÇO</th>
+        	</tr>
+        	<tr ng-repeat="lanche in cardapio | orderBy:'nome' | filter: filtro">
+        		<td>{{lanche.nome}}</td>
+        		<td>{{lanche.ingredientes}}</td>
+        		<td>{{lanche.preco | currency:'R$'}}</td>
+        	</tr>
+        </table>
+    </div>
+</div>

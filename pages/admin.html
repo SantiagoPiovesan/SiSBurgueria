@@ -1,0 +1,68 @@
+<div class="container todo">
+
+    <div class="center">
+        <h2>Gerenciador de Lanches</h2>
+    </div>
+    <div class="alert alert-danger" role="alert" ng-show="err">
+    {{err}}
+    </div>
+    <div class="left">
+        <h3>Adicionar Novo Lanche:</h3>
+    </div>
+    <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate> 
+    	<div class="form-group">
+            <label>Nome:</label>
+            <input type="text" name="nomeLanche" class="form-control" ng-model="lanche.nome" required>
+            <p ng-show="userForm.nomeLanche.$invalid && !userForm.nomeLanche.$pristine" class="help-block">Nome do Lanche é obrigatório</p>
+        </div>
+
+        <div class="form-group">
+            <label>Ingredientes:</label>
+            <input type="text" name="ingredientes" class="form-control" ng-model="lanche.ingredientes" required>
+            <p ng-show="userForm.ingredientes.$invalid && !userForm.ingredientes.$pristine" class="help-block">Os ingredientes são obrigatórios</p>
+        </div>
+
+        <div class="form-group">
+            <label>Preço:</label>
+            <input type="text" name="preco" class="form-control" ng-model="lanche.preco" required>
+            <p ng-show="userForm.preco.$invalid && !userForm.preco.$pristine" class="help-block">Preço é obrigatório</p>
+        </div>
+    </form>
+
+    <button type="submit" class="btn btn-danger" ng-disabled="userForm.$invalid" ng-click="saveLanche(lanche)">Cadastrar</button>
+        
+   <div class="left">
+        <h3>Lanches já Cadastrados:</h3>
+    </div>
+
+    <form class="form-inline">
+        <div class="form-group">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            <input class="form-control" id="filter" placeholder="Filtrar" ng-model="filtro" />
+        </div>            
+    </form>
+
+    <br />
+    
+    <table class="table">
+        <tr>
+            <th>NOME</th>
+            <th>INGREDIENTES</th>
+            <th>PREÇO</th>
+            <th>AÇÃO</th>
+        </tr>
+        <tr ng-repeat="sis in cardapio | orderBy:'nome' | filter: filtro">
+            <td>{{sis.nome}}</td>
+            <td>{{sis.ingredientes}}</td>
+            <td>{{sis.preco | currency:'R$'}}</td>
+            <td>
+                <a ng-click="editarLanche(sis)" class="linkTabela">
+                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                </a> 
+                <a ng-click="deleteLanche(sis)" class="linkTabela">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </a>                
+            </td>
+        </tr>
+    </table>
+</div>

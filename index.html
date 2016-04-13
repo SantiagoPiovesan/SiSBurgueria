@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="myApp">
+    <head>
+        <title>SiSBurgueria</title>
+        <meta charset="utf-8" />
+        
+        <!-- ALL IMPORTS -->
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-route.min.js"></script>   
+        <!-- <script src="js/angular-animate.min.js"></script>
+        <script src="js/ui-bootstrap-tpls-0.11.2.min.js"></script> -->
+        <script src="js/underscore.min.js"></script> 
+
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link  rel= "stylesheet"  href= "css/bootstrap.min.css" >
+        <link  rel= "stylesheet"  href= "css/bootstrap-theme.min.css" >
+        <link  rel= "stylesheet"  href= "css/estilos.css" >
+        
+        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <script src="app/app.js"></script>
+        <script src="app/cardapioCtrl.js"></script>
+        <script src="app/contatoCtrl.js"></script>
+        <script src="app/data.js"></script>
+    </head>
+    <body>
+        <!--NavBar-->
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <a class="navbar-brand sisburgueria" href="#/">SiSBurgueria</a>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/">Home</a></li>
+                    <li><a href="#/cardapio">Cardápio</a></li>
+                    <li><a href="#/pedido">Faça seu Pedido</a></li>
+                    <li><a href="#/entrega">Área de Entrega</a></li>
+                    <li><a href="#/contato">Contato</a></li>
+                </ul>
+    		</div>
+        </nav>
+        <!--NavBar-->
+
+        <!--Corpo-->
+        <div class="container todo" >
+            <div ng-view></div>
+        </div>
+
+        <!--Corpo-->
+         <div class="navbar navbar-default navbar-fixed-bottom " role="navigation">
+            <div class="container">
+                <div class="navbar-text">
+                    <span class="sisburgueria pull-left">SiSBurgueria</span>
+                </div> 
+                <div class="navbar-text pull-right ">
+                    <a href="#/admin"><span class="sisburgueria pull-right">Administração</span></a>
+                </div> 
+            </div>
+        </div>    
+    </body>
+</html>
